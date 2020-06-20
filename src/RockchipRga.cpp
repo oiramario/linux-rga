@@ -26,7 +26,7 @@
 #include "RockchipRga.h"
 //#include "RgaApi.h"
 #include "version.h"
-#include "normal/NormalRga.h"
+#include "NormalRga.h"
 
 #include <drm.h>
 #include "drm_mode.h"
