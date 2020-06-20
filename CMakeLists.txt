@@ -4,6 +4,7 @@ project(rga VERSION 0.1.0)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
 
 set(ENV{PKG_CONFIG_PATH} /opt/devkit/lib/pkgconfig)
+include(GNUInstallDirs)
 find_package(PkgConfig REQUIRED)
 
 pkg_check_modules(DRM REQUIRED libdrm)
