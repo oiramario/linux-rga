@@ -32,9 +32,9 @@ target_link_libraries(${PROJECT_NAME}
 )
 
 
-#if(BUILD_DEMO)
+if(BUILD_DEMO)
     add_subdirectory(demo)
-#endif()
+endif()
 
 
 install(TARGETS ${PROJECT_NAME})
@@ -47,5 +47,7 @@ CONFIGURE_FILE("${CMAKE_CURRENT_SOURCE_DIR}/pkgconfig/rga.pc.cmake"
 install(FILES "${CMAKE_BINARY_DIR}/rga.pc"
         DESTINATION "${CMAKE_INSTALL_LIBDIR}/pkgconfig/")
 
-file(GLOB DATA_FILES demo/data/*.bin)
-install(FILES ${DATA_FILES} DESTINATION ${CMAKE_INSTALL_BINDIR}/data)
+if(BUILD_DEMO)
+    file(GLOB DATA_FILES demo/data/*.bin)
+    install(FILES ${DATA_FILES} DESTINATION ${CMAKE_INSTALL_BINDIR}/data)
+endif()
