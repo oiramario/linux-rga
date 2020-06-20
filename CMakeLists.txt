@@ -33,5 +33,7 @@ install(TARGETS ${PROJECT_NAME})
 file(GLOB INCLUDE_FILES include/*.h)
 install(FILES ${INCLUDE_FILES} DESTINATION include/librga)
 
-CONFIGURE_FILE("${CMAKE_CURRENT_SOURCE_DIR}/rga.pc.cmake" "${CMAKE_CURRENT_BINARY_DIR}/rga.pc" @ONLY)
-INSTALL(FILES "${CMAKE_CURRENT_BINARY_DIR}/rga.pc" DESTINATION "${CMAKE_INSTALL_LIBDIR}/pkgconfig/")
+CONFIGURE_FILE("${CMAKE_CURRENT_SOURCE_DIR}/pkgconfig/rga.pc.cmake"
+                "${CMAKE_BINARY_DIR}/rga.pc" @ONLY)
+install(FILES "${CMAKE_BINARY_DIR}/rga.pc"
+        DESTINATION "${CMAKE_INSTALL_LIBDIR}/pkgconfig/")
