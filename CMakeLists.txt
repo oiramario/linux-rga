@@ -46,3 +46,6 @@ CONFIGURE_FILE("${CMAKE_CURRENT_SOURCE_DIR}/pkgconfig/rga.pc.cmake"
                 "${CMAKE_BINARY_DIR}/rga.pc" @ONLY)
 install(FILES "${CMAKE_BINARY_DIR}/rga.pc"
         DESTINATION "${CMAKE_INSTALL_LIBDIR}/pkgconfig/")
+
+file(GLOB DATA_FILES demo/data/*.bin)
+install(FILES ${DATA_FILES} DESTINATION ${CMAKE_INSTALL_BINDIR}/data)
