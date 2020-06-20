@@ -42,7 +42,9 @@ RockchipRga::RockchipRga():
     mContext(NULL)
 {
     RkRgaInit();
-    printf("Rga built version:%s \n", RK_GRAPHICS_VER);
+    #ifdef DEBUG
+        printf("Rga built %s \n", RK_GRAPHICS_VER);
+    #endif
 }
 
 RockchipRga::~RockchipRga()
