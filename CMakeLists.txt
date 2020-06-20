@@ -20,6 +20,8 @@ link_directories(
 
 
 add_library(${PROJECT_NAME} SHARED
+    src/NormalRga.cpp
+    src/NormalRgaApi.cpp
     src/RgaApi.cpp
     src/RockchipFileOps.cpp
     src/RockchipRga.cpp
@@ -28,6 +30,12 @@ add_library(${PROJECT_NAME} SHARED
 target_link_libraries(${PROJECT_NAME}
     ${DRM_LIBRARIES}
 )
+
+
+#if(BUILD_DEMO)
+    add_subdirectory(demo)
+#endif()
+
 
 install(TARGETS ${PROJECT_NAME})
 
