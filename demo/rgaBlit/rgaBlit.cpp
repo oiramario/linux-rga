@@ -20,7 +20,7 @@
 #include <signal.h>
 #include <sys/time.h>
 
-#include <librga/RockchipRga.h>
+#include <RockchipRga.h>
 
 #include <stdint.h>
 #include <sys/types.h>
@@ -36,7 +36,7 @@
 
 #include <sys/mman.h>
 #include <linux/stddef.h>
-#include <librga/RockchipFileOps.h>
+#include <RockchipFileOps.h>
 ///////////////////////////////////////////////////////
 
 int main()
