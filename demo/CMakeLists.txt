@@ -12,11 +12,6 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
 
 set(DEPENDENCIES rga)
 
-pkg_check_modules(RGA REQUIRED rga)
-
-include_directories(${RGA_INCLUDE_DIRS})
-link_directories(${RGA_LIBRARY_DIRS})
-
 add_subdirectory(rgaBlit)
 add_subdirectory(rgaClip)
 add_subdirectory(rgaCopy)
