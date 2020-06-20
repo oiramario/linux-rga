@@ -9,42 +9,42 @@
 ##################################################################
 
 .PHONY: all clean help
-all:
+all: 
 
 # Some important on-off settings. You can not be too careful about them.
 DEBUG       	:= y
 # Flag of generate a dynamic lib or a static lib: y means yes. If the target is a excutable file, it should be blank!
-GEN_LIBS    	:= y
+GEN_LIBS    	:= 
 # Flag of generate a dynamic lib: y means yes. It should be blank unless you want to generate a dynamic lib!
-GEN_DYN_LIB		:= y
-# The name of target bin file.Please let it be blank unless the target is a excutable file.
-EXCUTE_BIN		:=
+GEN_DYN_LIB		:= 
+# The name of target bin file.Please let it be blank unless the target is a excutable file. 
+EXCUTE_BIN		:= rgaClip
 # Name of the static lib. It should be blank unless the target is a static lib, then the GEN_LIBS is y and GEN_DYN_LIB is blank.
 # STATIC_LIBS		:= libsrcpbl.a
 # Name of the dynamic lib. It should be blank unless the target is a dynamic lib, then the GEN_LIBS is y and GEN_DYN_LIB is y.
-DYNAMIC_LIBS 	:= librga.so
+DYNAMIC_LIBS 	:= 
 
 # Environment settings. The value of PROJECT_DIR shoule be set in the *nix system as the the absolute dir path of your project.
-PROJECT_DIR	?= /opt/librga_linux
+ PROJECT_DIR	:= /opt/librga_linux
 #CURDIR    		:= $(PROJECT_DIR)/src/pbl
 CURDIR     		:= $(shell pwd)
 PRG_BIN_DIR		:= $(PROJECT_DIR)/bin
 PRG_LIB_DIR		:= $(PROJECT_DIR)/lib
-PRG_INC_DIR		:= $(PROJECT_DIR)/include
+PRG_INC_DIR		:= $(PROJECT_DIR)/include /opt/librga_linux/ /opt/demo/rgaClip/
 
 # Cross compile tools defined. You needn't modify these vars below generally.
-AS    	?= as
-LD    	?= ld
-CC    	?= gcc
-CXX   	?= g++
-CPP   	?= $(CC) -E
-AR      ?= ar rcs
-NM      ?= nm
-STRIP   ?= strip
-RANLIB 	?= ranlib
-STD_OPT	?= -D_GNU_SOURCE
-CC    	?= -std=c99 $(STD_OPT)
-CXX    	?= $(STD_OPT)
+AS    	:= as
+LD    	:= ld
+CC    	:= gcc
+CXX   	:= g++
+CPP   	:= $(CC) -E
+AR      := ar rcs
+NM      := nm
+STRIP   := strip
+RANLIB 	:= ranlib
+STD_OPT	:= -D_GNU_SOURCE
+CC    	+= -std=c99 $(STD_OPT)
+CXX    	+= $(STD_OPT)
 
 # *nix system tools defined. You needn't modify these vars below generally.
 BLACK = "\e[33;0m"
@@ -89,15 +89,10 @@ $(foreach dirname,$(sort $(PRG_INC_DIR) $(PRG_BIN_DIR) $(PRG_LIB_DIR)),\
 CFLAGS     	:= $(if $(DEBUG),-g -Wall, -O2 -Wall)
 CFLAGS     	+= $(if $(GEN_DYN_LIB), $(addprefix -fPIC -I ,$(sort $(dir $(SRC_H)))), $(addprefix -I ,$(sort $(dir $(SRC_H)))))
 CXXFLAGS   	= $(CFLAGS)
-LDFLAGS    	:=
-LD_LIB_DIR 	:= #-L $(PRG_LIB_DIR)
-LD_LIBS	   	:= #-lsrcpbl -lmysqlclient
+LDFLAGS    	:= 
+LD_LIB_DIR 	:=  #-L $(PRG_LIB_DIR)
+LD_LIBS	   	:= -ldrm -lrga #-lsrcpbl -lmysqlclient
 XLD_FLG	   	:= -Xlinker "-(" $(LDFLAGS) -Xlinker "-)"
-
-ifeq ($(LIBDRM),y)
-LD_LIBS += -ldrm
-PRG_INC_DIR += /usr/include/libdrm
-endif
 
 # Add vpath.
 vpath %.h $(sort $(dir $(SRC_H)))
@@ -161,7 +156,7 @@ $(foreach lib,$(STATIC_LIBS),$(eval $(call gen_libs,$(lib),$(CUR_OBJ),$(AR))))
 all: $(ULT_BIN) $(ULT_LIBS)
 
 
-clean:
+clean: 
 	-$(FIND) $(CURDIR) -name "*.o" -o -name "*.d" | $(XARGS) $(RM)
 	-$(RM) $(ULT_BIN) $(ULT_LIBS)
 
