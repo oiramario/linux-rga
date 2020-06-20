@@ -8,11 +8,9 @@ project(RgaDemo)
 # Save the command line compile commands in the build output
 set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
 # View the makefile commands during build
-set(CMAKE_VERBOSE_MAKEFILE on)
+#set(CMAKE_VERBOSE_MAKEFILE on)
 
-set(ENV{PKG_CONFIG_PATH} /opt/devkit/lib/pkgconfig)
-include(GNUInstallDirs)
-find_package(PkgConfig REQUIRED)
+set(DEPENDENCIES rga)
 
 pkg_check_modules(RGA REQUIRED rga)
 
