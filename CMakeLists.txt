@@ -28,7 +28,7 @@ target_link_libraries(${PROJECT_NAME}
     ${DRM_LIBRARIES}
 )
 
-install(TARGETS ${PROJECT_NAME}
-        EXPORT ${PROJECT_NAME}Targets
-        RUNTIME DESTINATION bin
-        INCLUDES DESTINATION include)
+install(TARGETS ${PROJECT_NAME})
+
+file(GLOB INCLUDE_FILES include/*.h)
+install(FILES ${INCLUDE_FILES} DESTINATION include/librga)
