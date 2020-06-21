@@ -1,4 +1,4 @@
-# linux-rga is rockchip RGA driver userspace(forked from rockchip-linux/linux-rga).
+# linux-rga is rockchip RGA driver userspace
 
 ### Dependencies:
 
