@@ -8,7 +8,7 @@ project(${ProjectId})
 
 add_executable(${PROJECT_NAME} ${PROJECT_NAME}.cpp)
 set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 11)
-target_link_libraries(${PROJECT_NAME} ${DEPENDENCIES})
+target_link_libraries(${PROJECT_NAME} ${RGA_LIBRARIES})
 set_target_properties (${PROJECT_NAME} PROPERTIES FOLDER "Test")
 
 install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})

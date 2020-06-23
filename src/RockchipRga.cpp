@@ -29,8 +29,8 @@
 #include "NormalRga.h"
 
 #include <drm.h>
-#include "drm_mode.h"
-#include "xf86drm.h"
+#include <drm_mode.h>
+#include <xf86drm.h>
 
 
 // ---------------------------------------------------------------------------

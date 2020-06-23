@@ -46,8 +46,3 @@ CONFIGURE_FILE("${CMAKE_CURRENT_SOURCE_DIR}/pkgconfig/librga.pc.cmake"
                 "${CMAKE_BINARY_DIR}/librga.pc" @ONLY)
 install(FILES "${CMAKE_BINARY_DIR}/librga.pc"
         DESTINATION "${CMAKE_INSTALL_LIBDIR}/pkgconfig/")
-
-if(BUILD_DEMO)
-    file(GLOB DATA_FILES demo/data/*.bin)
-    install(FILES ${DATA_FILES} DESTINATION ${CMAKE_INSTALL_BINDIR}/data)
-endif()
