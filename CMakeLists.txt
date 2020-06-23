@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.0)
-project(rga VERSION 0.1.0)
+project(rga VERSION 1.0.1)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
 
@@ -40,7 +40,7 @@ endif()
 install(TARGETS ${PROJECT_NAME})
 
 file(GLOB INCLUDE_FILES include/*.h)
-install(FILES ${INCLUDE_FILES} DESTINATION include/librga)
+install(FILES ${INCLUDE_FILES} DESTINATION include/rga)
 
 CONFIGURE_FILE("${CMAKE_CURRENT_SOURCE_DIR}/pkgconfig/rga.pc.cmake"
                 "${CMAKE_BINARY_DIR}/rga.pc" @ONLY)
