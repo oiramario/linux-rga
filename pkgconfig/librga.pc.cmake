@@ -5,6 +5,6 @@ includedir=${prefix}/@CMAKE_INSTALL_INCLUDEDIR@
 
 Name: librga
 Description: The RGA driver userspace
-Version: @VERSION@
+Version: 1.0.1
 Libs: -L${libdir} -lrga
 Cflags: -I${includedir}
