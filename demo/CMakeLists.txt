@@ -10,6 +10,8 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
 # View the makefile commands during build
 #set(CMAKE_VERBOSE_MAKEFILE on)
 
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-pointer-arith -Wno-int-to-pointer-cast")
+
 set(ENV{PKG_CONFIG_PATH} "/opt/devkit/lib/pkgconfig")
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(RGA REQUIRED librga)
